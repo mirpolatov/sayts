@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kliplar</title>
+
+
+    <link rel="canonical" href="https://AxrorBaxshi.uz">
+    <meta property="og:title" content="AxrorBaxshi - O‘zbek milliy media portali">
+    <meta name="description"
+        content="Faqat eng yangi o‘zbek filmlari, kliplari, seriallari, konsertlari va hajviyalarini yuqori sifatda tomosha qiling. Shuningdek, AxrorBaxshi saytida eng so‘nggi o‘zbek musiqa va albomlarini yaxshi sifatda tinglang.">
+    <meta property="og:description"
+        content="Faqat eng yangi o‘zbek filmlari, kliplari, seriallari, konsertlari va hajviyalarini yuqori sifatda tomosha qiling. Shuningdek, AxrorBaxshi saytida eng so‘nggi o‘zbek musiqa va albomlarini yaxshi sifatda tinglang.">
+    <meta name="keywords"
+        content="uzbek kino filmlar serial serial klip kliplar musiqa musiqa qo‘shiq qo‘shiqlar albom albomlar konsert konsertlar ijrochilar aktyor aktyorlar aktrisa rejissyor ssenariy muallifi foto poster axror axrorbaxshi baxshi axror axrorbaxshi">
+    <link rel="canonical" href="https://AxrorBaxshi.uz">
+
+    <!-- style link -->
+    <link rel="stylesheet" href="{% static '../static/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '../static/css/all.min.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{% url 'home' %}">
+                        Axror<Span style="color: #e91e63;">Baxshi</Span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Asosiy</a></li>
+                        <li><a href="{% url 'artist' %}">Artistlar</a></li>
+                        <li><a href="{% url 'kliplar' %}">Kliplar</a></li>
+                        <li><a href="{% url 'toplamlar' %}">To'plamlar</a></li>
+                        <li><a href="{% url 'artist' %}">Ijrochilar</a></li>
+                        <li><a href="{% url 'musiqa' %}">Musiqalar</a></li>
+                        <li><a href="{% url 'konsert' %}">Konsert</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="language-selector">
+                        UZ
+                    </div>
+                    <!-- <button class="login-btn">KIRISH</button> -->
+                </div>
+                <div class="search-modal" id="searchModal">
+                    <div class="search-modal-content">
+                        <span class="close-btn" id="closeModal">&times;</span>
+                        <input type="text" placeholder="Saytdan qidirish..." autofocus>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <br><br><br>
+
+    <section class="artists-section">
+        <div class="container">
+            <div class="section-header">
+                <h4> <span><a href="{% url 'home' %}" style="text-decoration: none;color: #e91e63;cursor: pointer;">Asosiyga Qaytish</a></span> > Barcha Kliplar</h4>
+            </div>
+            </div>
+            </section>
+
+    <div class="container3">
+    {% for klip in kliplar %}
+        <div class="card3">
+            <div class="card-image3">
+                <iframe width="100%" src="{{ klip.link | safe }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="card-info3">
+                <h3>{{ klip.klip_nomi }}</h3>
+                <p>{{ klip.avtor }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+    <br><br><br><br>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <a href="index.html">
+                            Axror<Span style="color: #e91e63;">Baxshi</Span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>AxrorBaxshi</h3>
+                        <ul>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                            <!-- <li><a href="#">Foydalanish shartlari</a></li> -->
+                            <!-- <li><a href="#">Maxfiylik siyosati</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Kategoriyalar</h3>
+                        <ul>
+                            <li><a href="{% url 'musiqa' %}">Musiqalar</a></li>
+                            <li><a href="{% url 'kliplar' %}">Kliplar</a></li>
+                            <li><a href="{% url 'artist' %}">Albomlar</a></li>
+                            <li><a href="{% url 'artist' %}">Ijrochilar</a></li>
+                            <li><a href="{% url 'konsert' %}">Konsertlar</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Ilovalar</h3>
+                        <div class="app-links">
+                            <h5>
+                                <marquee behavior="" direction="">Ilova Hali Mavjud Emas</marquee>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/axror_baxshi_official/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="t.me/Zamonaviy_baxshilar" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCq-TH1QUkcSBiXgsvGpZbdA" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>� 2025 Barhayot. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Element (Hidden) -->
+    <audio id="audioElement" src="music/kuylagim-keldi.mp3"></audio>
+
+    <script src="{% static '../static/js/script.js' %}"></script>
+
+
+</body>
+
+</html>

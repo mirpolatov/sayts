@@ -1,0 +1,367 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musiqa</title>
+
+
+    <link rel="canonical" href="https://AxrorBaxshi.uz">
+    <meta property="og:title" content="AxrorBaxshi - O‘zbek milliy media portali">
+    <meta name="description"
+        content="Faqat eng yangi o‘zbek filmlari, kliplari, seriallari, konsertlari va hajviyalarini yuqori sifatda tomosha qiling. Shuningdek, AxrorBaxshi saytida eng so‘nggi o‘zbek musiqa va albomlarini yaxshi sifatda tinglang.">
+    <meta property="og:description"
+        content="Faqat eng yangi o‘zbek filmlari, kliplari, seriallari, konsertlari va hajviyalarini yuqori sifatda tomosha qiling. Shuningdek, AxrorBaxshi saytida eng so‘nggi o‘zbek musiqa va albomlarini yaxshi sifatda tinglang.">
+    <meta name="keywords"
+        content="uzbek kino filmlar serial serial klip kliplar musiqa musiqa qo‘shiq qo‘shiqlar albom albomlar konsert konsertlar ijrochilar aktyor aktyorlar aktrisa rejissyor ssenariy muallifi foto poster axror axrorbaxshi baxshi axror axrorbaxshi">
+    <link rel="canonical" href="https://AxrorBaxshi.uz">
+    <!-- style link -->
+    <link rel="stylesheet" href="{% static '../static/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '../static/css/all.min.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{% url 'home' %}">
+                        Axror<Span style="color: #e91e63;">Baxshi</Span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Asosiy</a></li>
+                        <li><a href="{% url 'artist' %}">Artistlar</a></li>
+                        <li><a href="{% url 'kliplar' %}">Kliplar</a></li>
+                        <li><a href="{% url 'toplamlar' %}">To'plamlar</a></li>
+                        <li><a href="{% url 'artist' %}">Ijrochilar</a></li>
+                        <li><a href="{% url 'musiqa' %}">Musiqalar</a></li>
+                        <li><a href="{% url 'konsert' %}">Konsert</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="language-selector">
+                        UZ
+                    </div>
+                    <!-- <button class="login-btn">KIRISH</button> -->
+                </div>
+                <div class="search-modal" id="searchModal">
+                    <div class="search-modal-content">
+                        <span class="close-btn" id="closeModal">&times;</span>
+                        <input type="text" placeholder="Saytdan qidirish..." autofocus>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <br><br><br>
+
+    <section class="artists-section">
+        <div class="container">
+            <div class="section-header">
+                <h4> <span><a href="{% url 'home' %}" style="text-decoration: none;color: #e91e63;cursor: pointer;">Asosiyga Qaytish</a></span> > Musiqa</h4>
+            </div>
+            </div>
+            </section>
+
+    
+    <!-- Main Hero Carousel -->
+    <div class="hero-carousel" style="display: none;">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide active">
+                    <img src="	https://api.rizanova.uz/uploads/banner/jpg/1745590847318.jpg" alt="Carousel Image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="{% static '../static/images/1689334906277.jpg' %}" alt="Carousel Image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="{% static '../static/images/1688384254650.jpg' %}" alt="Carousel Image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="{% static '../static/images/1686203231659.jpg' %}" alt="Carousel Image">
+                </div>
+            </div>
+            <button class="carousel-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axror Baxshi Ijrolari -->
+    <section class="releases-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Axror Baxshi Ijrolari</h2>
+                <a href="{% url 'musiqa' %}" class="view-all">Hammasini ko'rish <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="releases-slider">
+                <button class="slider-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="releases-track">
+                    <div class="release-card">
+                        <div class="card-image">
+                            <img src="{% static '../static/images/1745483376088.jpg' %}" alt="Sexta">
+                            <div class="year-badge">2023</div>
+                            <div class="play-overlay">
+                                <button class="play-btn"><i class="fas fa-play"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Sexta</h3>
+                            <p>SHXZ, Avazbanov</p>
+                        </div>
+                    </div>
+                    <div class="release-card">
+                        <div class="card-image">
+                            <img src="{% static '../static/images/1744958386936.jpg' %}" alt="Hech kim yo'q">
+                            <div class="year-badge">2023</div>
+                            <div class="play-overlay">
+                                <button class="play-btn"><i class="fas fa-play"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Hech kim yo'q</h3>
+                            <p>Konsta</p>
+                        </div>
+                    </div>
+                    <div class="release-card">
+                        <div class="card-image">
+                            <img src="{% static '../static/images/1745479751931.jpg' %}" alt="Lablaridan">
+                            <div class="year-badge">2023</div>
+                            <div class="play-overlay">
+                                <button class="play-btn"><i class="fas fa-play"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Lablaridan</h3>
+                            <p>Zafar Ergashov, Firuz Ruzmetov</p>
+                        </div>
+                    </div>
+                    <div class="release-card">
+                        <div class="card-image">
+                            <img src="{% static '../static/images/1745483800685.jpg' %}" alt="Qizim">
+                            <div class="year-badge">2023</div>
+                            <div class="play-overlay">
+                                <button class="play-btn"><i class="fas fa-play"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3>Qizim</h3>
+                            <p>Lobarxon</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+<!-- To'plam Kliplar -->
+<section class="clips-section" style="display: none;">
+    <div class="container">
+        <div class="section-header">
+            <h2>To'plamlar</h2>
+            <a href="{% url 'musiqa' %}" class="view-all">Hammasini ko'rish <i
+                    class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="clips-slider">
+            <button class="slider-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="clips-track">
+                <div class="clip-card">
+                    <div class="card-image">
+                        <div class="premiere-badge">PREMYERA</div>
+                        <iframe width="100%" src="https://www.youtube.com/embed/q6u7FuT3vWo?si=UIUCQjEFlkXZbntC" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-info">
+                        <h3>Kuylagim keldi</h3>
+                        <p>Ulug'bek Rahmatullayev</p>
+                    </div>
+                </div>
+                <div class="clip-card">
+                    <div class="card-image">
+                        <div class="premiere-badge">PREMYERA</div>
+                        <a target="_blank" href="https://rizanova.uz/clip/7721">
+                            <img src="{% static '../static/images/1745493509088.jpg' %}" alt="Clip 1">
+                            <div class="play-overlay">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-info">
+                        <h3>Siqilma</h3>
+                        <p>Mashhur Muhammad</p>
+                    </div>
+                </div>
+                <div class="clip-card">
+                    <div class="card-image">
+                        <a target="_blank" href="https://rizanova.uz/clip/7722">
+                            <img src="{% static '../static/images/1745493531445.jpg' %}" alt="Clip 1">
+                            <div class="play-overlay">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-info">
+                        <h3>Oynonin</h3>
+                        <p>Bekzod Xakimov</p>
+                    </div>
+                </div>
+                <div class="clip-card">
+                    <div class="card-image">
+                        <a target="_blank" href="https://rizanova.uz/clip/7720">
+                            <img src="{% static '../static/images/1745501454636.jpg' %}" alt="Clip 1">
+                            <div class="play-overlay">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-info">
+                        <h3>Izlab</h3>
+                        <p>Sarvar Akbarov (Sharq guruhi)</p>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- Audio Player -->
+    <div class="audio-player" id="audioPlayer">
+        <div class="container">
+            <div class="player-content">
+                <div class="song-info">
+                    <div class="song-image">
+                        <img src="{% static 'images/current-song.jpg' %}" alt="Current Song">
+                    </div>
+                    <div class="song-details">
+                        <h4 class="song-title">Kuylagim keldi</h4>
+                        <p class="song-artist">Ulug'bek Rahmatullayev</p>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button class="control-btn shuffle-btn">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn prev-song-btn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-pause-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn next-song-btn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-btn repeat-btn">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
+                </div>
+                <div class="progress-container">
+                    <span class="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="total-time">3:45</span>
+                </div>
+                <div class="volume-control">
+                    <button class="volume-btn">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <div class="volume-slider">
+                        <div class="volume-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" >
+                    <div class="logo" >
+                        <a href="{% url 'home' %}">
+                            Axror<Span style="color: #e91e63;">Baxshi</Span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>AxrorBaxshi</h3>
+                        <ul>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                            <!-- <li><a href="#">Foydalanish shartlari</a></li> -->
+                            <!-- <li><a href="#">Maxfiylik siyosati</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Kategoriyalar</h3>
+                        <ul>
+                            <li><a href="{% url 'musiqa' %}">Musiqalar</a></li>
+                            <li><a href="{% url 'kliplar' %}">Kliplar</a></li>
+                            <li><a href="{% url 'konsert' %}">Albomlar</a></li>
+                            <li><a href="{% url 'artist' %}">Ijrochilar</a></li>
+                            <li><a href="{% url 'konsert' %}">Konsertlar</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Ilovalar</h3>
+                        <div class="app-links">
+                            <h5><marquee behavior="" direction="">Ilova Hali Mavjud Emas</marquee></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/axror_baxshi_official/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="t.me/Zamonaviy_baxshilar" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCq-TH1QUkcSBiXgsvGpZbdA" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>� 2025 Barhayot. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Element (Hidden) -->
+    <audio id="audioElement" src="music/kuylagim-keldi.mp3"></audio>
+
+    <script src="{% static '../static/js/script.js' %}"></script>
+
+
+</body>
+
+</html>

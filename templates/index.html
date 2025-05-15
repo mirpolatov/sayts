@@ -1,0 +1,433 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>AxrorBaxshi - O'zbek Media Portal</title>
+
+    <link rel="canonical" href="https://AxrorBaxshi.uz">
+    <meta property="og:title" content="AxrorBaxshi - O‘zbek milliy media portali">
+    <meta name="description"
+        content="Faqat eng yangi o‘zbek filmlari, kliplari, seriallari, konsertlari va hajviyalarini yuqori sifatda tomosha qiling. Shuningdek, AxrorBaxshi saytida eng so‘nggi o‘zbek musiqa va albomlarini yaxshi sifatda tinglang.">
+    <meta property="og:description"
+        content="Faqat eng yangi o‘zbek filmlari, kliplari, seriallari, konsertlari va hajviyalarini yuqori sifatda tomosha qiling. Shuningdek, AxrorBaxshi saytida eng so‘nggi o‘zbek musiqa va albomlarini yaxshi sifatda tinglang.">
+    <meta name="keywords"
+        content="uzbek kino filmlar serial serial klip kliplar musiqa musiqa qo‘shiq qo‘shiqlar albom albomlar konsert konsertlar ijrochilar aktyor aktyorlar aktrisa rejissyor ssenariy muallifi foto poster axror axrorbaxshi baxshi axror axrorbaxshi">
+    <link rel="canonical" href="https://AxrorBaxshi.uz">
+
+    <!-- style link -->
+    <link rel="stylesheet" href="{% static '../static/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '../static/css/all.min.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        Axror<Span style="color: #e91e63;">Baxshi</Span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Asosiy</a></li>
+                        <li><a href="{% url 'artist' %}">Artistlar</a></li>
+                        <li><a href="{% url 'kliplar' %}">Kliplar</a></li>
+                        <li><a href="{% url 'toplamlar' %}">To'plamlar</a></li>
+                        <li><a href="{% url 'artist' %}">Ijrochilar</a></li>
+                        <li><a href="{% url 'musiqa' %}">Musiqalar</a></li>
+                        <li><a href="{% url 'konsert' %}">Konsert</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="language-selector">
+                        UZ
+                    </div>
+                    <!-- <button class="login-btn">KIRISH</button> -->
+                </div>
+                <div class="search-modal" id="searchModal">
+                    <div class="search-modal-content">
+                        <span class="close-btn" id="closeModal">&times;</span>
+                        <input type="text" placeholder="Saytdan qidirish..." autofocus>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+
+
+    
+    <!-- Main Hero Carousel -->
+    <div class="hero-carousel">
+    <div class="carousel-track">
+        {% for image in hero_images %}
+        <div class="carousel-slide {% if forloop.first %}active{% endif %}">
+            <img src="{{ image.images.url }}" alt="Carousel Image">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+            <button class="carousel-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axror Baxshi Ijrolari -->
+    <section class="releases-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Axror Baxshi Ijrolari</h2>
+            <a href="{% url 'musiqa' %}" class="view-all">Hammasini ko'rish <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="releases-slider">
+            <button class="slider-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="releases-track">
+                {% for ijro in asosiy %}
+                    <div class="release-card">
+                        <div class="card-image">
+                            <iframe width="100%" height="200" src="{{ ijro.link }}"
+                                title="{{ ijro.nomi }}" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <div class="year-badge">2024</div> <!-- Istasangiz modelga qo‘shiladi -->
+                        </div>
+                        <div class="card-info">
+                            <h3>{{ ijro.nomi }}</h3>
+                            <p>{{ ijro.avtor }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="slider-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Clips Section -->
+    <section class="clips-section">
+        <div class="container">
+    <div class="section-header">
+        <h2>Kliplar</h2>
+        <a href="{% url 'kliplar' %}" class="view-all">Hammasini ko'rish <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="clips-slider">
+        <button class="slider-btn prev-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="clips-track">
+            {% for klip in kliplar %}
+                <div class="clip-card">
+                    <div class="card-image">
+                        {% if forloop.counter <= 2 %}
+                            <div class="premiere-badge">PREMYERA</div>
+                        {% endif %}
+                        <iframe width="100%" src="{{ klip.link }}" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-info">
+                        <h3>{{ klip.klip_nomi }}</h3>
+                        <p>{{ klip.avtor }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <button class="slider-btn next-btn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+    </section>
+
+
+
+<!-- To'plam Kliplar -->
+<section class="clips-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>To'plamlar</h2>
+            <a href="{% url 'toplamlar' %}" class="view-all">Hammasini ko'rish <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="clips-slider">
+            <button class="slider-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="clips-track">
+                {% for toplam in toplamlar %}
+                    <div class="clip-card">
+                        <div class="card-image">
+                            <iframe width="100%" src="{{ toplam.link }}" title="YouTube video player"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                                gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-info">
+                            <h3>{{ toplam.toplam_nomi }}</h3>
+                            <p>{{ toplam.avtor }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="slider-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="container1">
+    <a href="{% url 'musiqa' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/mucik.jpg' %}" alt="Musiqa">
+            <div class="card-content1">
+                <i class="fas fa-music"></i>
+                <p>Musiqa</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'kliplar' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/clip.jpg' %}" alt="Kliplar">
+            <div class="card-content1">
+                <i class="fas fa-play-circle"></i>
+                <p>Kliplar</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'kliplar' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/category-film.jpg' %}" alt="Filmlar">
+            <div class="card-content1">
+                <i class="fas fa-video"></i>
+                <p>Filmlar</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'konsert' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/category-telenovella.jpg' %}" alt="Telenovella">
+            <div class="card-content1">
+                <i class="fas fa-film"></i>
+                <p>Telenovella</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'konsert' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/category-serial.jpg' %}" alt="Seriallar">
+            <div class="card-content1">
+                <i class="fas fa-tv"></i>
+                <p>Seriallar</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'konsert' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/category-concert.jpg' %}" alt="Konsertlar">
+            <div class="card-content1">
+                <i class="fas fa-guitar"></i>
+                <p>Konsertlar</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'kliplar' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/category-humor.jpg' %}" alt="Hajviya">
+            <div class="card-content1">
+                <i class="fas fa-theater-masks"></i>
+                <p>Hajviya</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'artist' %}">
+        <div class="card1">
+            <img src="{% static '../static/images/category-singers.jpg' %}" alt="Ijrochilar">
+            <div class="card-content1">
+                <i class="fas fa-users"></i>
+                <p>Ijrochilar</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<br><br>
+    <!-- Ijrochilar -->
+    <section class="artists-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mashhur ijrochilar</h2>
+                <a href="{% url 'artist' %}" class="view-all">Hammasini ko'rish <i
+                        class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="{% static '../static/images/axrorbaxshi.jpg' %}" alt="Artist 1">
+                    </div>
+                    <h3>Axror Baxshi</h3>
+                </div>
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="{% static '../static/images/shoxruxergashev.jpg' %}" alt="Artist 2">
+                    </div>
+                    <h3>Shoxruxbek Ergashev</h3>
+                </div>
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="{% static '../static/images/xurshidrasulov.jpg' %}" alt="Artist 3">
+                    </div>
+                    <h3>Xurshid Rasulov</h3>
+                </div>
+                <div class="artist-card">
+                    <div class="artist-image">
+                        <img src="{% static '../static/images/sherzodergashev.jpg' %}" alt="Artist 4">
+                    </div>
+                    <h3>Sherzod Ergashev</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Player -->
+    <div class="audio-player" id="audioPlayer">
+        <div class="container">
+            <div class="player-content">
+                <div class="song-info">
+                    <div class="song-image">
+                        <img src="{% static 'images/current-song.jpg' %}" alt="Current Song">
+                    </div>
+                    <div class="song-details">
+                        <h4 class="song-title">Kuylagim keldi</h4>
+                        <p class="song-artist">Ulug'bek Rahmatullayev</p>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button class="control-btn shuffle-btn">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn prev-song-btn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-pause-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn next-song-btn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-btn repeat-btn">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
+                </div>
+                <div class="progress-container">
+                    <span class="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="total-time">3:45</span>
+                </div>
+                <div class="volume-control">
+                    <button class="volume-btn">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <div class="volume-slider">
+                        <div class="volume-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" >
+                    <div class="logo" >
+                        <a href="index.html" >
+                            Axror<Span style="color: #e91e63;">Baxshi</Span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>AxrorBaxshi</h3>
+                        <ul>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="#">Aloqa</a></li>
+                            <!-- <li><a href="#">Foydalanish shartlari</a></li> -->
+                            <!-- <li><a href="#">Maxfiylik siyosati</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Kategoriyalar</h3>
+                        <ul>
+                            <li><a href="{% url 'musiqa' %}">Musiqalar</a></li>
+                            <li><a href="{% url 'kliplar' %}">Kliplar</a></li>
+                            <li><a href="{% url 'konsert' %}">Albomlar</a></li>
+                            <li><a href="{% url 'artist' %}">Ijrochilar</a></li>
+                            <li><a href="{% url 'konsert' %}">Konsertlar</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Ilovalar</h3>
+                        <div class="app-links">
+                            <h5><marquee behavior="" direction="">Ilova Hali Mavjud Emas</marquee></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/axror_baxshi_official/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="t.me/Zamonaviy_baxshilar" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCq-TH1QUkcSBiXgsvGpZbdA" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p> &copy; 2025 AxrorBaxshi. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Element (Hidden) -->
+    <audio id="audioElement" src="music/kuylagim-keldi.mp3"></audio>
+
+    <script src="{% static '../static/js/script.js' %}"></script>
+
+
+</body>
+
+</html>
