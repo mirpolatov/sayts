@@ -6,8 +6,11 @@ from apps import apps
 from root import settings
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('', include('apps.urls')),
+    path('admin/', admin.site.urls),  # Admin panel uchun marshrut
+    path('', include('apps.urls')),  # Ilovalaringizdagi marshrutlar
+]
 
-              ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS) + static(settings.MEDIA_URL,
-                                                                                               document_root=settings.MEDIA_ROOT)
+# Statik va media fayllarni ishlash
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

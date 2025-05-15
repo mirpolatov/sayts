@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&+_xs)xw50b5jn)wdpb9-$=9(20=jap#f*lcqdn(0w#hij4_xo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['axrorbaxshi.uz','www.axrorbaxshi.uz']
 
 
 # Application definition
@@ -118,9 +118,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),  # Adjust based on your directory structure
+    os.path.join(BASE_DIR, 'static'),  # Ensure this path is correct and exists
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for `collectstatic`
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
