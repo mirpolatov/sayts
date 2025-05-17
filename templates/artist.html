@@ -19,8 +19,8 @@
         content="uzbek kino, filmlar, serial, serial, klip ,kliplar, musiqa, musiqa qo‘shiq qo‘shiqlar albom albomlar konsert konsertlar ijrochilar aktyor aktyorlar aktrisa rejissyor ssenariy muallifi foto poster axror axrorbaxshi baxshi axror axrorbaxshi artist artistlar haqida malumot, malumotlar">
     <link rel="canonical" href="https://AxrorBaxshi.uz">
     <!-- style link -->
-    <link rel="stylesheet" href="{% static '../static/css/styles.css' %}">
-    <link rel="stylesheet" href="{% static '../static/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
 </head>
 
 <body>
@@ -70,7 +70,7 @@
         <div class="container">
 
             <div class="section-header">
-                <h4> <span><a href="index.html" style="text-decoration: none;color: #e91e63;cursor: pointer;">Asosiyga
+                <h4> <span><a href="{% url 'home' %}" style="text-decoration: none;color: #e91e63;cursor: pointer;">Asosiyga
                             Qaytish</a></span> > Sanatkorlar Haqida Ma'lumotlar</h4>
             </div>
             <br>
@@ -186,7 +186,7 @@
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/axror_baxshi_official/" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="t.me/Zamonaviy_baxshilar" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="https://t.me/Zamonaviy_baxshilar" class="social-link"><i class="fab fa-telegram"></i></a>
                     <a href="https://www.youtube.com/channel/UCq-TH1QUkcSBiXgsvGpZbdA" class="social-link"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
@@ -199,7 +199,7 @@
     <!-- Audio Element (Hidden) -->
     <audio id="audioElement" src="{% static 'kuylagim-keldi.mp3' %}"></audio>
 
-    <script src="{% static '../static/js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 
     <script>
         const modal = document.getElementById('artistModal');
