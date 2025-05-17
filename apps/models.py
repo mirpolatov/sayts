@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Asosiy(models.Model):
-    images = models.ImageField(upload_to='images/')
+    images = models.ImageField(upload_to='media')
 
 class Konsert(models.Model):
     dastur_nomi = models.CharField(max_length=50,null=True,blank=True)

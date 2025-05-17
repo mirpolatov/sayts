@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&+_xs)xw50b5jn)wdpb9-$=9(20=jap#f*lcqdn(0w#hij4_xo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['axrorbaxshi.uz','www.axrorbaxshi.uz']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -125,7 +125,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for `collectstatic`
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type

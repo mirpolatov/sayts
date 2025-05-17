@@ -4,12 +4,12 @@ from apps.models import Asosiy, Konsert, Kliplar, Toplamlar, AsosiyBolimIjorchi
 
 
 def home(request):
-    hero_images = Asosiy.objects.all()[:4]
+    hero_images = Asosiy.objects.all()
     kliplars = Kliplar.objects.all().order_by('-id')
     toplam = Toplamlar.objects.all()
     asosiy = AsosiyBolimIjorchi.objects.all()
     return render(request, 'index.html',
-                  {'hero_images': hero_images, 'kliplar': kliplars, 'toplamlar': toplam, 'asosiy': asosiy})
+                  {'images': hero_images, 'kliplar': kliplars, 'toplamlar': toplam, 'asosiy': asosiy})
 
 
 def artist(request):
